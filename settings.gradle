@@ -1,0 +1,9 @@
+rootProject.name = 'tm-core'
+
+include 'tm-core-api'
+include 'tm-core-web'
+include 'tm-eureka'
+include 'tm-report'
+include 'tm-uaa'
+include 'tm-zuul'
+
