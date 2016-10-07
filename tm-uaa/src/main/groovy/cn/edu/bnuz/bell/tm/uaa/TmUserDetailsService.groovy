@@ -40,15 +40,15 @@ class TmUserDetailsService implements UserDetailsService {
                 // 角色权限
                 def roles = authorities.collect { it.authority }
                 def permissions = RolePermission.findPermissionsByRoles roles
-                authorities.addAll permissions.collect { new SimpleGrantedAuthority("ROLE_${it.id}") }
+                authorities.addAll permissions.collect { new SimpleGrantedAuthority(it) }
 
                 log.debug authorities.toString()
-                return new TmUser(user, authorities)
+                return new BellUser(user, authorities)
             }
         }
     }
 
-    private Collection<GrantedAuthority> loadTeacherAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static Collection<GrantedAuthority> loadTeacherAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.TEACHER)
 
@@ -61,7 +61,7 @@ class TmUserDetailsService implements UserDetailsService {
         return authorities
     }
 
-    private Collection<GrantedAuthority> loadStudentAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static Collection<GrantedAuthority> loadStudentAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.STUDENT)
 
@@ -71,7 +71,7 @@ class TmUserDetailsService implements UserDetailsService {
         return authorities
     }
 
-    private Collection<GrantedAuthority> loadExternalAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static Collection<GrantedAuthority> loadExternalAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.EXTERNAL)
 
