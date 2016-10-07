@@ -5,6 +5,8 @@ class UrlMappings {
     static mappings = {
         "/"(controller: 'index')
 
+        "/menus"(resources: 'menu', includes: ['index', 'show'])
+
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

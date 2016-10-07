@@ -18,7 +18,6 @@ import javax.annotation.PreDestroy
 class ReportService {
     IReportEngine reportEngine
     SessionFactory sessionFactory
-    GrailsApplication grailsApplication
 
     @Value('${bell.report.design.dir}')
     String inputDir;

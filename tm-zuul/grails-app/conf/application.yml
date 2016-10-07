@@ -141,11 +141,10 @@ spring:
     application:
         name: '@info.app.name@'
 
-zuul:
-    routes:
-        rpt:
-            path: /rpt/**
-            url: http://localhost:9001
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
 
 server:
     session:
@@ -159,5 +158,8 @@ bell:
             viewPrefix: 'dv_'
     student:
         picturePath: 'D:\bell\bell-tm-pictures'
+    application:
+        menu:
+            expiration: 6
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
