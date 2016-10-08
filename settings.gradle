@@ -6,4 +6,3 @@ include 'tm-eureka'
 include 'tm-report'
 include 'tm-uaa'
 include 'tm-zuul'
-

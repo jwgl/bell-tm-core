@@ -1,11 +1,12 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:hibernate5:6.0.0.RC2"
-        classpath "org.grails.plugins:views-gradle:1.1.0.RC3"
+        classpath "org.grails.plugins:hibernate5:6.0.0"
+        classpath "org.grails.plugins:views-gradle:1.1.0"
     }
 }
 
