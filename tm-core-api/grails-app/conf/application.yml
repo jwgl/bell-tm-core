@@ -58,6 +58,8 @@ grails:
         encoding: UTF-8
     gorm:
         failOnError: true
+
+---
 hibernate:
     cache:
         queries: false
