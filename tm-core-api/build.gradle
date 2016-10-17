@@ -58,7 +58,6 @@ dependencies {
     compile "org.grails.plugins:views-json-templates"
     console "org.grails:grails-console"
     profile "org.grails.profiles:rest-api"
-    runtime "com.h2database:h2"
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testCompile "org.grails:grails-datastore-rest-client"
