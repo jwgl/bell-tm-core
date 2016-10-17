@@ -13,19 +13,21 @@
     <g:layoutHead/>
 </head>
 <body>
-<header class="navbar navbar-static-top navbar-light bg-faded"></header>
-<div class="container">
-    <g:layoutBody />
-</div>
-<footer></footer>
-<script src="/static/js/lib/moment-with-locales.min.js"></script>
-<script src="/static/js/lib/jquery.slim.min.js"></script>
-<script src="/static/js/lib/tether.min.js"></script>
-<script src="/static/js/lib/bootstrap.min.js"></script>
-<script src="/static/js/lib/bootstrap-submenu.min.js"></script>
-<script src="/static/js/app/common.js"></script>
-<script src="/static/js/app/angular.js"></script>
-<script src="/static/js/app/navbar.js"></script>
-<asset:deferredScripts/>
+    <header class="navbar navbar-static-top navbar-light bg-faded"></header>
+    <div class="container">
+        <g:layoutBody />
+    </div>
+    <footer></footer>
+    <script src="/static/js/lib/moment.min.js"></script>
+    <script src="/static/js/lib/moment.zh-cn.js"></script>
+    <script src="/static/js/lib/jquery.slim.min.js"></script>
+    <script src="/static/js/lib/tether.min.js"></script>
+    <script src="/static/js/lib/bootstrap.min.js"></script>
+    <script src="/static/js/lib/bootstrap-submenu.min.js"></script>
+    <script src="/static/js/lib/lodash.min.js"></script>
+    <script src="/static/js/app/polyfills.js"></script>
+    <script src="/static/js/app/vendor.js"></script>
+    <script src="/static/js/app/navbar.js"></script>
+    <asset:deferredScripts/>
 </body>
 </html>
