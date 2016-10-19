@@ -6,7 +6,7 @@
     <title>教学管理系统</title>
     <meta name="keywords" content="北京师范大学珠海分校 教学管理系统">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/lib/font-awesome.min.css"/>
     <style>
