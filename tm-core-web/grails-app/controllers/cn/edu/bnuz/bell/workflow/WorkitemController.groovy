@@ -32,8 +32,6 @@ class WorkitemController {
             workflowService.setProcessed(uuid)
         }
 
-        log.debug(request.getServerName())
-        log.debug('haha')
         redirect url: workItem.activity.url
                 .replace('${id}', workItem.instance.entityId)
                 .replace('${workitem}', id)

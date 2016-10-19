@@ -8,11 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.EnvironmentAware
 import org.springframework.core.env.Environment
 import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer
 
 @SpringBootApplication
 @EnableResourceServer
-class Application extends GrailsAutoConfiguration implements EnvironmentAware{
+@EnableAuthorizationServer
+class Application extends GrailsAutoConfiguration implements EnvironmentAware {
     static void main(String[] args) {
         GrailsApp.run(Application, args)
     }
