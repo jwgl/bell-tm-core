@@ -28,7 +28,7 @@ class WorkitemController {
         }
 
         // 如果审批结束，最后工作项的操作为"同意"(ACCEPT)，活动为"查看"(*.view)
-        if (!workItem.dateProcessed && workItem.action == AuditAction.ACCEPT && workItem.activity.id.endsWith('.view')) {
+        if (!workItem.dateProcessed && workItem.event == Events.ACCEPT && workItem.activity.id.endsWith('.view')) {
             workflowService.setProcessed(uuid)
         }
 
