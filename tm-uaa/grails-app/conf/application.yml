@@ -98,14 +98,14 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: update
+            dbCreate: none
             logSql: true
     test:
         dataSource:
-            dbCreate: update
+            dbCreate: none
     production:
         dataSource:
-            dbCreate: update
+            dbCreate: none
             properties:
                 jmxEnabled: true
                 initialSize: 5
