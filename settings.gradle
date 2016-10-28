@@ -1,4 +1,4 @@
-rootProject.name = 'tm-core'
+rootProject.name = 'bell-tm-core'
 
 include 'tm-core-api'
 include 'tm-core-web'
