@@ -65,11 +65,6 @@ dependencies {
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"
 }
 
-assets {
-    minifyJs = true
-    minifyCss = true
-}
-
 springBoot {
     executable = true
 }
