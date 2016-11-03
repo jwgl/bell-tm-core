@@ -31,7 +31,14 @@ class WorkitemController {
             workflowService.setProcessed(uuid)
         }
 
-        redirect url: workItem.activity.url
+        def host = request.getHeader('x-forwarded-host')
+        def url = workItem.activity.url
+        if (host) {
+            def proto = request.getHeader('x-forwarded-proto')
+            url = "${proto}://${host}${workItem.activity.url}"
+        }
+
+        redirect url: url
                 .replace('${id}', workItem.instance.entityId)
                 .replace('${workitem}', id)
                 .replace('${userId}', userId)
