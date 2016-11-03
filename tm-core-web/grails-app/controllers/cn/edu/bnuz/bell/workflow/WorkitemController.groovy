@@ -35,7 +35,7 @@ class WorkitemController {
         def url = workItem.activity.url
         if (host) {
             def proto = request.getHeader('x-forwarded-proto')
-            url = "${proto}://${host}${workItem.activity.url}"
+            url = "${proto}://${host}" + url
         }
 
         redirect url: url
