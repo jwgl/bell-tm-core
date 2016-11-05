@@ -1,5 +1,6 @@
 package cn.edu.bnuz.bell.master
 
+import cn.edu.bnuz.bell.tm.common.master.FieldService
 import grails.converters.JSON
 
 /**

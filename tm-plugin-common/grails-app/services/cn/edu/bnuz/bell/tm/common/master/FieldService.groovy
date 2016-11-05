@@ -1,4 +1,6 @@
-package cn.edu.bnuz.bell.master
+package cn.edu.bnuz.bell.tm.common.master
+
+import cn.edu.bnuz.bell.master.Field
 
 /**
  * 专业目录服务
