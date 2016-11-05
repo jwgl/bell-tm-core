@@ -1,5 +1,6 @@
-package cn.edu.bnuz.bell.organization
+package cn.edu.bnuz.bell.tm.common.organization
 
+import cn.edu.bnuz.bell.organization.Teacher
 import grails.transaction.Transactional
 
 @Transactional
