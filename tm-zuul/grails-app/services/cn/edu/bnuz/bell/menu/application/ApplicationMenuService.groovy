@@ -19,6 +19,7 @@ class ApplicationMenuService implements ApplicationListener<HeartbeatEvent>  {
         applicationMenu.getUserMenus(
                 securityService.userId,
                 securityService.userName,
+                securityService.departmentId,
                 securityService.userPermissions,
                 groupName,
                 locale
