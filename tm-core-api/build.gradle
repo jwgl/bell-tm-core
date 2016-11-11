@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "org.grails.plugins:hibernate5:$hibernatePluginVersion"
-        classpath "org.grails.plugins:views-gradle:1.1.1"
+        classpath "org.grails.plugins:views-gradle:1.1.2"
     }
 }
 
@@ -75,6 +75,10 @@ dependencies {
     compile "cn.edu.bnuz.bell:bell-core-cdm:0.1"
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"
     compile "cn.edu.bnuz.bell:tm-plugin-common:0.1"
+}
+
+bootRun {
+    jvmArgs = ['-Dspring.output.ansi.enabled=always']
 }
 
 springBoot {
