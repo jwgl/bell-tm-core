@@ -42,6 +42,8 @@ dependencies {
     // project
     compile "cn.edu.bnuz.bell:bell-core-cdm:0.1"
 }
+
+bootRepackage.enabled = false
 grailsPublish {
     // TODO: Provide values here
     user = 'user'
