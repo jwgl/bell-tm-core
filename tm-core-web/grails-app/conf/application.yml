@@ -127,7 +127,7 @@ environments:
 
 ---
 server:
-    port: 50110
+    port: 11110
 
 spring:
     application:
