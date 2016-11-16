@@ -17,7 +17,7 @@ class DepartmentService {
      * @return [id:id, name:name]*
      */
     def getAdministrativeDepartments() {
-        Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isAdminDept = true and enabled = true'
+        Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isTeaching = false and enabled = true'
     }
 
     /**
@@ -25,6 +25,6 @@ class DepartmentService {
      * @return [id:id, name:name]*
      */
     def getTeachingDepartments() {
-        Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isAdminDept = false and enabled = true'
+        Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isTeaching = true and enabled = true'
     }
 }

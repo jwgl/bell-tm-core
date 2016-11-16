@@ -8,6 +8,8 @@ class UrlMappings {
 
         "/teachers"(resources: 'teacher', includes: ['index'])
 
+        "/departments"(resources: 'department', includes: ['index'])
+
         "/workflows"(resources: 'workflow', includes: []) {
             "/workitems"(action: 'workitems', includes: ['index'], method: 'GET')
         }
