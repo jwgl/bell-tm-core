@@ -152,8 +152,9 @@ bell:
     orm:
         ignored:
             schemas:
-                - 'ea'
-            viewPrefix: 'dv_'
+                - ea
+            prefixes:
+                - dv
     student:
         picturePath: # Student picture path
     report:

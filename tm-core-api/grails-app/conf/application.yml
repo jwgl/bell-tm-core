@@ -134,7 +134,8 @@ bell:
     orm:
         ignored:
             schemas:
-                - 'ea'
-            viewPrefix: 'dv_'
+                - ea
+            prefixes:
+                - dv
     student:
         picturePath: 'D:\bell\bell-tm-pictures'
