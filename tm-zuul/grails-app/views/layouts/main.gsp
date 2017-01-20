@@ -13,7 +13,7 @@
     <g:layoutHead/>
 </head>
 <body>
-    <header class="navbar navbar-static-top navbar-light bg-faded"></header>
+    <header class="navbar navbar-toggleable-md navbar-light bg-faded"></header>
     <div class="container">
         <g:layoutBody />
     </div>
