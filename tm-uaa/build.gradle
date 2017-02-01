@@ -19,7 +19,6 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
-apply plugin:"spring-boot"
 
 repositories {
     mavenLocal()
@@ -66,7 +65,7 @@ dependencies {
 }
 
 bootRun {
-    jvmArgs = ['-Dspring.output.ansi.enabled=always']
+    jvmArgs('-Dspring.output.ansi.enabled=always')
 }
 
 springBoot {
