@@ -41,8 +41,6 @@ class TmUserDetailsService implements UserDetailsService {
                 def roles = authorities.collect { it.authority }
                 def permissions = RolePermission.findPermissionsByRoles roles
                 authorities.addAll permissions.collect { new SimpleGrantedAuthority(it) }
-
-                log.debug authorities.toString()
                 return new BellUser(user, authorities)
             }
         }

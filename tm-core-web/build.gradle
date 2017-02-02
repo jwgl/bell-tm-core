@@ -49,7 +49,10 @@ dependencies {
     compile "org.hibernate:hibernate-java8:$hibernateVersion"
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
-    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
+    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6", {
+        exclude group: 'org.mozilla', module: 'rhino'
+        exclude group: "com.google.javascript", module: "closure-compiler-unshaded"
+    }
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
