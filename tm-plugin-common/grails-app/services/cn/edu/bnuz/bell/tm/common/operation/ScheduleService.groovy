@@ -1,10 +1,9 @@
 package cn.edu.bnuz.bell.tm.common.operation
 
-import cn.edu.bnuz.bell.master.Term
 import cn.edu.bnuz.bell.operation.TaskSchedule
 
 class ScheduleService {
-    List getTeacherSchedules(String teacherId, Term term) {
+    List getTeacherSchedules(String teacherId, Integer termId) {
         TaskSchedule.executeQuery '''
 select new map(
   schedule.id as id,
@@ -25,11 +24,11 @@ join courseClass.course course
 left join task.courseItem courseItem
 left join schedule.place place
 where schedule.teacher.id = :teacherId
-  and courseClass.term = :term
-''', [teacherId: teacherId, term: term]
+  and courseClass.term.id = :termId
+''', [teacherId: teacherId, termId: termId]
     }
 
-    List getStudentSchedules(String studentId, Term term) {
+    List getStudentSchedules(String studentId, Integer termId) {
         TaskSchedule.executeQuery '''
 select new map(
   schedule.id as id,
@@ -51,7 +50,7 @@ join task.students taskStudent
 left join task.courseItem courseItem
 left join schedule.place place
 where taskStudent.student.id = :studentId
-  and courseClass.term = :term
-''', [studentId: studentId, term: term]
+  and courseClass.term.id = :termId
+''', [studentId: studentId, termId: termId]
     }
 }
