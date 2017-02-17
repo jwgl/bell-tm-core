@@ -1,0 +1,15 @@
+import cn.edu.bnuz.bell.security.User
+
+model {
+    User user
+}
+
+json {
+    id user.id
+    name user.name
+    email user.email
+    officePhone user.officePhone
+    longPhone user.longPhone
+    shortPhone user.shortPhone
+    userType user.userType
+}
