@@ -9,7 +9,8 @@ class UrlMappings {
 
         "/activities"(resources: 'activity', includes: ['index', 'show'])
 
-        "/users"(resources: 'user') {
+        "/users"(resources: 'user', includes:[]) {
+            "/profile"(resource: 'profile', includes: ['show', 'update'])
             "/works"(resources: 'workitem', includes: ['index', 'show'])
             "/picture"(resource: 'picture', includes: ['show'])
         }

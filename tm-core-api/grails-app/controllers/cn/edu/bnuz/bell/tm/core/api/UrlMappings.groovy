@@ -18,6 +18,7 @@ class UrlMappings {
 
         // 按用户获取信息
         "/users"(resources: 'user', includes: []) {
+            "/profile"(resource: 'profile', includes: ['show', 'update'])
             "/works"(resources: 'workitem', includes: ['index'])
         }
 
