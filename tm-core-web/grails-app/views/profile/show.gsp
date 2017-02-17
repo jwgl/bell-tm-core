@@ -5,6 +5,6 @@
     <asset:script src="/static/js/app/user/profile.js"></asset:script>
 </head>
 <body>
-<user-profile-container id="$params.userId"></user-profile-container>
+<user-profile-container></user-profile-container>
 </body>
 </html>
