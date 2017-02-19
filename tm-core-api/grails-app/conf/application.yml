@@ -72,12 +72,12 @@ hibernate:
     default_schema: tm
     hbm2ddl:
         schema_filter_provider: cn.edu.bnuz.bell.orm.BellSchemaFilterProvider
-    configClass: cn.edu.bnuz.bell.orm.BellHibernateMappingContextConfiguration
 
 dataSource:
     pooled: true
     jmxExport: true
     driverClassName: org.postgresql.Driver
+    dialect: cn.edu.bnuz.bell.orm.BellPostgreSQLDialect
 
 environments:
     development:
