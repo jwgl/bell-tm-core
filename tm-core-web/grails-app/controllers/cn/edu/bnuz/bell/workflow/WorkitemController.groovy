@@ -42,5 +42,6 @@ class WorkitemController {
                 .replace('${id}', workItem.instance.entityId)
                 .replace('${workitem}', id)
                 .replace('${userId}', userId)
+                .replace('${todo}', workItem.dateProcessed ? 'done' : 'todo')
     }
 }
