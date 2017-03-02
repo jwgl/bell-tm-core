@@ -8,7 +8,7 @@ class DepartmentService {
      * 所有部门
      * @return [id:id, name:name]*
      */
-    def getAllDepartments() {
+    List<Map> getAllDepartments() {
         Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where enabled = true'
     }
 
@@ -16,7 +16,7 @@ class DepartmentService {
      * 获取行政部门
      * @return [id:id, name:name]*
      */
-    def getAdministrativeDepartments() {
+    List<Map> getAdministrativeDepartments() {
         Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isTeaching = false and enabled = true'
     }
 
@@ -24,7 +24,7 @@ class DepartmentService {
      * 获取教学单位
      * @return [id:id, name:name]*
      */
-    def getTeachingDepartments() {
+    List<Map> getTeachingDepartments() {
         Department.executeQuery 'SELECT new map(id as id, name as name) FROM Department where isTeaching = true and enabled = true'
     }
 }

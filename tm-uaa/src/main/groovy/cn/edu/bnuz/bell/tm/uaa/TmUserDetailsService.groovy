@@ -13,10 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService
  * @author Yang Lin
  */
 class TmUserDetailsService implements UserDetailsService {
-    protected Logger log = LoggerFactory.getLogger(getClass())
-
     @Override
-    public UserDetails loadUserByUsername(String username) {
+    UserDetails loadUserByUsername(String username) {
         User.withNewSession {
             User.withTransaction {
                 User user = User.get(username)
@@ -27,6 +25,9 @@ class TmUserDetailsService implements UserDetailsService {
                 authorities << new SimpleGrantedAuthority(Roles.USER)
 
                 switch (user.userType) {
+                    case UserType.VIRTUAL:
+                        loadVirtualAuthorities(authorities, user)
+                        break
                     case UserType.TEACHER:
                         loadTeacherAuthorities(authorities, user)
                         break
@@ -45,6 +46,17 @@ class TmUserDetailsService implements UserDetailsService {
             }
         }
     }
+
+    private static Collection<GrantedAuthority> loadVirtualAuthorities(Collection<GrantedAuthority> authorities, User user) {
+        // 固定角色
+        authorities << new SimpleGrantedAuthority(Roles.VIRTUAL)
+
+        // 配置角色
+        authorities.addAll user.roles.collect { new SimpleGrantedAuthority(it.role.id) }
+
+        return authorities
+    }
+
 
     private static Collection<GrantedAuthority> loadTeacherAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
