@@ -34,3 +34,13 @@ dependencies {
 springBoot {
     executable = true
 }
+
+configurations.all {
+    resolutionStrategy {
+        eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == "org.springframework") {
+                details.useVersion "4.3.7.RELEASE"
+            }
+        }
+    }
+}

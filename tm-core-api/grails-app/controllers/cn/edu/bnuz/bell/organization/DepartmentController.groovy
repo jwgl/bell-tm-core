@@ -1,7 +1,5 @@
 package cn.edu.bnuz.bell.organization
 
-import cn.edu.bnuz.bell.tm.common.organization.DepartmentService
-
 class DepartmentController {
     DepartmentService departmentService
 

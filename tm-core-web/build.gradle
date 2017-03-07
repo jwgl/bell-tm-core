@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
-        classpath "org.grails.plugins:hibernate5:$hibernatePluginVersion"
+        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
     }
 }
 
@@ -27,10 +27,8 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom "org.grails:grails-bom:$grailsVersion"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+         mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
     }
-    applyMavenExclusions false
 }
 
 dependencies {
@@ -70,10 +68,7 @@ dependencies {
 
 bootRun {
     jvmArgs('-Dspring.output.ansi.enabled=always')
-}
-
-springBoot {
-    executable = true
+    addResources = true
 }
 
 grails {
