@@ -73,10 +73,6 @@ bootRun {
     addResources = true
 }
 
-springBoot {
-    executable = true
-}
-
 grails {
     pathingJar = true
 }
