@@ -94,7 +94,7 @@ security:
 
 spring:
     application:
-        name: '@info.app.name@'
+        name: ${info.app.name}
 
 eureka:
     client:

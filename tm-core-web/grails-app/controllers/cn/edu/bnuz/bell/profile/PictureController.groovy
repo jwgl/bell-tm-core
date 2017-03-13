@@ -13,14 +13,24 @@ class PictureController {
     String picturePath
 
     def show(String userId) {
-        if (securityService.userType == UserType.STUDENT) {
-            if (securityService.userId != userId) {
+        switch (securityService.userType) {
+            case UserType.STUDENT:
+                if (securityService.userId == userId) {
+                    output(userId)
+                } else {
+                    render status: HttpStatus.UNAUTHORIZED
+                }
+                break
+            case UserType.TEACHER:
+                if (securityService.hasRole('ROLE_REGISTER_ADMIN')) {
+                    output(userId)
+                } else {
+                    render status: HttpStatus.UNAUTHORIZED
+                }
+                break
+            default:
                 render status: HttpStatus.UNAUTHORIZED
-            } else {
-                output(userId)
-            }
-        } else {
-            output(userId)
+                break
         }
     }
 
