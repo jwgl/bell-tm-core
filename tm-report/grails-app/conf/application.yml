@@ -133,7 +133,7 @@ server:
 
 spring:
     application:
-        name: '@info.app.name@'
+        name: ${info.app.name}
     cloud:
         client:
             hostname: localhost
