@@ -67,7 +67,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.security.oauth:spring-security-oauth2"
     // eureka
-    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka", {
+        exclude group: 'com.netflix.ribbon', module:'ribbon-transport'
+    }
     // project
     compile "cn.edu.bnuz.bell:bell-core-cdm:0.1"
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"

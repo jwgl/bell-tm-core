@@ -54,7 +54,9 @@ dependencies {
     // security
     compile "org.springframework.cloud:spring-cloud-starter-oauth2"
     // eureka
-    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka", {
+        exclude group: 'com.netflix.ribbon', module:'ribbon-transport'
+    }
     // eureka
     compile "org.springframework.cloud:spring-cloud-starter-zuul"
     // project
