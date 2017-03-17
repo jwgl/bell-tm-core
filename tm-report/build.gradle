@@ -61,7 +61,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.security.oauth:spring-security-oauth2"
     // eureka
-    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka", {
+        exclude group: 'com.amazonaws', module:'ribbon-transport'
+    }
     // birt
     compile fileTree(dir: 'lib', include: '*.jar')
     // project
