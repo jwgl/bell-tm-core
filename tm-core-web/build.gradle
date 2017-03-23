@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:$assetPipelineVersion"
         classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
     }
 }
@@ -47,7 +47,7 @@ dependencies {
     compile "org.hibernate:hibernate-java8:$hibernateVersion"
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
-    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6", {
+    runtime "com.bertramlabs.plugins:asset-pipeline-grails:$assetPipelineVersion", {
         exclude group: 'org.mozilla', module: 'rhino'
         exclude group: "com.google.javascript", module: "closure-compiler-unshaded"
     }
