@@ -18,7 +18,7 @@ class AjaxLogoutSuccessHandler implements LogoutSuccessHandler {
 
     @Override
     void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-        String token = request.getParameter('token');
+        String token = request.getParameter('token')
         if(token) {
             consumerTokenServices.revokeToken(token)
         }
