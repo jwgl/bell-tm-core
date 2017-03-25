@@ -1,12 +1,10 @@
 package cn.edu.bnuz.bell.report
 
-import grails.core.GrailsApplication
 import grails.transaction.Transactional
 import grails.web.context.ServletContextHolder
 import org.eclipse.birt.core.framework.Platform
 import org.eclipse.birt.core.framework.PlatformServletContext
 import org.eclipse.birt.report.engine.api.*
-import org.eclipse.birt.report.engine.api.impl.ScalarParameterDefn
 import org.hibernate.SessionFactory
 import org.hibernate.internal.SessionImpl
 import org.springframework.beans.factory.annotation.Value
@@ -20,7 +18,7 @@ class ReportService {
     SessionFactory sessionFactory
 
     @Value('${bell.report.design.dir}')
-    String inputDir;
+    String inputDir
 
 
     @PostConstruct

@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @Order(-20)
 class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
