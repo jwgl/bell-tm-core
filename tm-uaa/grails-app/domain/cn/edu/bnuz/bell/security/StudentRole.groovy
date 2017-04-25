@@ -1,6 +1,6 @@
 package cn.edu.bnuz.bell.security
 
-import org.apache.commons.lang.builder.HashCodeBuilder
+import org.codehaus.groovy.util.HashCodeHelper
 
 /**
  * 学生角色
@@ -29,10 +29,10 @@ class StudentRole implements Serializable {
     }
 
     int hashCode() {
-        def builder = new HashCodeBuilder()
-        builder.append(userId)
-        builder.append(roleId)
-        builder.toHashCode()
+        int hash = HashCodeHelper.initHash()
+        hash = HashCodeHelper.updateHash(hash, userId)
+        hash = HashCodeHelper.updateHash(hash, roleId)
+        hash
     }
 
     static List<String> getRoles(String userId) {
