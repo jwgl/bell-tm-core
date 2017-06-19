@@ -1,7 +1,7 @@
 package cn.edu.bnuz.bell.profile
 
 import cn.edu.bnuz.bell.security.User
-import grails.transaction.Transactional
+import grails.gorm.transactions.Transactional
 
 @Transactional
 class ProfileService {
