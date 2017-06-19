@@ -10,6 +10,10 @@ class UrlMappings {
 
         "/departments"(resources: 'department', includes: ['index'])
 
+        "/students"(resources: 'student', includes: []) {
+            "/schedules"(resources: 'studentSchedule', includes: ['index'])
+        }
+
         "/workflows"(resources: 'workflow', includes: []) {
             "/workitems"(action: 'workitems', includes: ['index'], method: 'GET')
         }

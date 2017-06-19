@@ -15,6 +15,10 @@ class UrlMappings {
             "/picture"(resource: 'picture', includes: ['show'])
         }
 
+        "/students"(resources: 'student', includes: []) {
+            "/schedules"(resources: 'studentSchedule', includes: ['index'])
+        }
+
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here
