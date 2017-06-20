@@ -1,9 +1,10 @@
 package cn.edu.bnuz.bell.student
 
 import cn.edu.bnuz.bell.master.TermService
+import cn.edu.bnuz.bell.operation.ScheduleService
 
 class StudentScheduleController {
-    StudentScheduleService studentScheduleService
+    ScheduleService scheduleService
     TermService termService
 
     def index(String studentId) {
@@ -15,7 +16,7 @@ class StudentScheduleController {
                         endWeek    : term.endWeek,
                         currentWeek: term.currentWeek,
                 ],
-                schedules: studentScheduleService.getSchedules(term.id, studentId),
+                schedules: scheduleService.getStudentSchedules(term.id, studentId),
         ])
     }
 }
