@@ -6,10 +6,10 @@ spring:
         name: tm-eureka
     cloud:
         client:
-            hostname: localhost
+            hostname: tm-eureka
 eureka:
     instance:
-        hostname: localhost
+        hostname: tm-eureka
     client:
         registerWithEureka: false
         fetchRegistry: false

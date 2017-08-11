@@ -15,7 +15,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 @EnableOAuth2Sso
 class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
-    public void configure(HttpSecurity http) throws Exception {
+    void configure(HttpSecurity http) throws Exception {
         http
             .httpBasic().disable()
             .authorizeRequests()

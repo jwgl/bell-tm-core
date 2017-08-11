@@ -27,7 +27,7 @@ class ApplicationMenuService implements ApplicationListener<HeartbeatEvent>  {
     }
 
     @Override
-    public void onApplicationEvent(HeartbeatEvent event) {
+    void onApplicationEvent(HeartbeatEvent event) {
         DiscoveryClient discoveryClient = event.source as DiscoveryClient
         discoveryClient.applications.registeredApplications.each {application ->
             def instances = application.instances
