@@ -31,7 +31,7 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
-                <input type="text" class="form-control" name="username" id="username" placeholder="用户名" />
+                <input class="form-control" name="username" id="username" placeholder="用户名" />
             </div>
         </div>
         <div class="form-group">
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="form-group">
-             <button class="btn btn-primary form-control" type="submit">登录</button>
+             <button class="btn btn-primary form-control">登录</button>
         </div>
         <g:if test="${flash.message}">
         <div class="alert alert-danger">
@@ -51,9 +51,12 @@
     </form>
 </div>
 <script type="application/javascript">
+    if (sessionStorage) {
+        sessionStorage.clear();
+    }
     setTimeout(function() {
         document.getElementById("username").focus();
-    }, 10);
+    }, 0);
 </script>
 <!--[if IE]>
 <style>
@@ -69,8 +72,8 @@
     系统不支持此版本的浏览器，Windows XP或Vista用户请下载
     <a href="http://dl.google.com/release2/h8vnfiy7pvn3lxy9ehfsaxlrnnukgff8jnodrp0y21vrlem4x71lor5zzkliyh8fv3sryayu5uk5zi20ep7dwfnwr143dzxqijv/49.0.2623.112_chrome_installer.exe">Google Chrome v49</a>，
     Windows 7及以上用户请下载
-    <a href="https://dl.google.com/release2/11sx7qq3lmncwfwkxnj8si8rq6me2v498iogaovom8062r5g3bwn5s6l64nt9yzjvua2kxq5sdnwbgsab2b569l5ey529uyw5nkv/51.0.2704.84_chrome_installer.exe">Google Chrome v51 32位</a>或
-    <a href="https://dl.google.com/release2/rkoforcsrkbke4r1b5s6gdj2a2aonn3m3l2d2l1j4pwgv2lcpjro3vz0ymb6snqur8lfocj6f8erh4ad91qndxeegy5chbkt167/51.0.2704.84_chrome_installer_win64.exe">Google Chrome v51 64位</a>。
+    <a href="http://dl.google.com/release2/G849XZrb8cM_60.0.3112.101/60.0.3112.101_chrome_installer.exe">Google Chrome v60 32位</a>或
+    <a href="http://dl.google.com/release2/AI4UQYLNTPy6_60.0.3112.101/60.0.3112.101_chrome_installer.exe">Google Chrome v60 64位</a>。
 </div>
 <![endif]-->
 </body>
