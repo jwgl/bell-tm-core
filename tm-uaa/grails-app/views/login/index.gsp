@@ -42,6 +42,7 @@
         </div>
         <div class="form-group">
              <button class="btn btn-primary form-control">登录</button>
+             <input type="hidden" id="csrf_token" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </div>
         <g:if test="${flash.message}">
         <div class="alert alert-danger">
