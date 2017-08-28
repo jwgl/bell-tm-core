@@ -29,9 +29,7 @@ class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdap
     }
 
     /**
-     * see: https://github.com/spring-guides/tut-spring-security-and-angular-js/tree/master/oauth2-logout
-     * @param endpoints
-     * @throws Exception
+     * 重定向前清除session，见https://github.com/spring-guides/tut-spring-security-and-angular-js/tree/master/oauth2-logout
      */
     @Override
     void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
