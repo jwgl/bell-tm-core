@@ -1,6 +1,6 @@
 package cn.edu.bnuz.bell.report
 
-import grails.transaction.Transactional
+import grails.gorm.transactions.Transactional
 import grails.web.context.ServletContextHolder
 import org.eclipse.birt.core.framework.Platform
 import org.eclipse.birt.core.framework.PlatformServletContext
