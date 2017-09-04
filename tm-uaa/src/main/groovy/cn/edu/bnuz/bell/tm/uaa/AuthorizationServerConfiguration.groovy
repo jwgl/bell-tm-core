@@ -3,6 +3,8 @@ package cn.edu.bnuz.bell.tm.uaa
 import cn.edu.bnuz.bell.security.OAuthClientService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer
@@ -21,7 +23,13 @@ import javax.servlet.http.HttpSession
 @Configuration
 class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
     @Autowired
-    OAuthClientService oAuthClientService
+    private AuthenticationManager authenticationManager
+
+    @Autowired
+    private OAuthClientService oAuthClientService
+
+    @Autowired
+    private UserDetailsService userDetailsService
 
     @Override
     void configure(ClientDetailsServiceConfigurer clients) {
@@ -33,6 +41,8 @@ class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdap
      */
     @Override
     void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.authenticationManager(authenticationManager)
+                 .userDetailsService(userDetailsService)
         endpoints.addInterceptor(new HandlerInterceptorAdapter() {
             void postHandle(HttpServletRequest request,
                             HttpServletResponse response, Object handler,
