@@ -43,7 +43,7 @@ class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdap
     void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager)
                  .userDetailsService(userDetailsService)
-        endpoints.addInterceptor(new HandlerInterceptorAdapter() {
+                 .addInterceptor(new HandlerInterceptorAdapter() {
             void postHandle(HttpServletRequest request,
                             HttpServletResponse response, Object handler,
                             ModelAndView modelAndView) throws Exception {
