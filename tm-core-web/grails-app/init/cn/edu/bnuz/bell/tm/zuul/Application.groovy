@@ -1,4 +1,4 @@
-package cn.edu.bnuz.bell.tm.core.web
+package cn.edu.bnuz.bell.tm.zuul
 
 import cn.edu.bnuz.bell.config.ExternalConfigLoader
 import cn.edu.bnuz.bell.menu.module.EnableModuleMenu

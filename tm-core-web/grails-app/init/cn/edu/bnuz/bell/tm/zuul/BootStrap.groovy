@@ -1,4 +1,4 @@
-package cn.edu.bnuz.bell.tm.core.web
+package cn.edu.bnuz.bell.tm.zuul
 
 class BootStrap {
 
