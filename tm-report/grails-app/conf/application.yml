@@ -162,4 +162,4 @@ bell:
         picturePath: # Student picture path
     report:
         design:
-            dir: d:\bell\bell-tm-reports
+            dir: # Report template path
