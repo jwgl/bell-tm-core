@@ -30,13 +30,21 @@
         </div>
         <div class="form-group">
             <div class="input-group">
-                <span class="input-group-addon"><span class="fa fa-user fa-fw"></span></span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-user fa-fw"></i>
+                    </div>
+                </div>
                 <input class="form-control" name="username" id="username" placeholder="用户名" />
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <span class="input-group-addon"><span class="fa fa-lock fa-fw"></span></span>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-lock fa-fw"></i>
+                    </div>
+                </div>
                 <input type="password" class="form-control" name="password" id="password" placeholder="密码" />
             </div>
         </div>
