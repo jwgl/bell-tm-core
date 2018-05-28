@@ -11,8 +11,6 @@ class UserController {
                 id: userDetails.username,
                 name: userDetails.name,
                 type: userDetails.userType,
-                roles: userDetails.authorities.findAll { it.startsWith('ROLE_')},
-                perms: userDetails.authorities.findAll { it.startsWith('PERM_')},
         ]])
     }
 }
