@@ -3,6 +3,10 @@ package cn.edu.bnuz.bell.tm.uaa
 class IndexController {
 
     def index() {
-        response.sendRedirect('/')
+        if (request.getHeader('X-Requested-With') == 'XMLHttpRequest') {
+            response.sendRedirect('/login')
+        } else {
+            response.sendRedirect('/')
+        }
     }
 }
