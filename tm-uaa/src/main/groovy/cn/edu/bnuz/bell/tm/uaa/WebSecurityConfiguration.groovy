@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.password.NoOpPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository
+import org.springframework.security.web.csrf.CsrfTokenRepository
 
 /**
  * UAA Web安全配置
@@ -29,6 +31,9 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .anyRequest()
                 .authenticated()
+                .and()
+            .csrf()
+                .csrfTokenRepository(csrfTokenRepository())
     }
 
     @Override
@@ -45,5 +50,13 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     PasswordEncoder passwordEncoder() {
         NoOpPasswordEncoder.instance
+    }
+
+    @Bean
+    CsrfTokenRepository csrfTokenRepository() {
+        def repo = CookieCsrfTokenRepository.withHttpOnlyFalse()
+        repo.setCookieName('UAA-XSRF-TOKEN')
+        repo.setHeaderName('X-UAA-XSRF-TOKEN')
+        return repo
     }
 }
