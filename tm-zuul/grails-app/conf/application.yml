@@ -86,6 +86,52 @@ endpoints:
         unique-names: true
 
 ---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: false
+        use_query_cache: false
+    default_schema: tm
+    hbm2ddl:
+        schema_filter_provider: cn.edu.bnuz.bell.orm.BellSchemaFilterProvider
+
+dataSource:
+    pooled: true
+    jmxExport: true
+    driverClassName: org.postgresql.Driver
+    dialect: cn.edu.bnuz.bell.orm.BellPostgreSQLDialect
+
+environments:
+    development:
+        dataSource:
+            dbCreate: none
+            logSql: true
+    test:
+        dataSource:
+            dbCreate: none
+    production:
+        dataSource:
+            dbCreate: none
+            properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
+                maxWait: 10000
+                maxAge: 600000
+                timeBetweenEvictionRunsMillis: 5000
+                minEvictableIdleTimeMillis: 60000
+                validationQuery: SELECT 1
+                validationQueryTimeout: 3
+                validationInterval: 15000
+                testOnBorrow: true
+                testWhileIdle: true
+                testOnReturn: false
+                jdbcInterceptors: ConnectionState
+                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+
+---
 security:
     oauth2:
         client:

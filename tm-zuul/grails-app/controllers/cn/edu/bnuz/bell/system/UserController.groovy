@@ -11,6 +11,7 @@ class UserController {
                 id: userDetails.username,
                 name: userDetails.name,
                 type: userDetails.userType,
+                departmentId: userDetails.departmentId,
         ]])
     }
 }
