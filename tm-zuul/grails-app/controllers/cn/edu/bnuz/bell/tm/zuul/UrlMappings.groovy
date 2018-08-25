@@ -7,6 +7,8 @@ class UrlMappings {
 
         "/menus"(resources: 'menu', includes: ['index', 'show'])
 
+        "/api/user"(controller: 'user', action: 'index')
+
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

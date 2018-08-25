@@ -1,23 +1,16 @@
 package cn.edu.bnuz.bell.system
 
-import cn.edu.bnuz.bell.menu.application.ApplicationMenuService
+import org.springframework.http.HttpStatus
 
 class MenuController {
-    ApplicationMenuService applicationMenuService
+    MenuService menuService
 
     def index() {
-        if (params.group) {
-            List<String> groups = params.list('group')
-            Map menus = groups.collectEntries { group ->
-                [group, applicationMenuService.getUserMenus(group, request.locale)]
-            }
-            renderJson(menus)
+        def menu = menuService.getUserMenus()
+        if (menu) {
+            render text: menu
         } else {
-            renderOk()
+            render status: HttpStatus.OK
         }
-    }
-
-    def show(String id) {
-        renderJson applicationMenuService.getUserMenus(id, request.locale)
     }
 }

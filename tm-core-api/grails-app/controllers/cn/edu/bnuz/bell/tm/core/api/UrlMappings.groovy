@@ -23,7 +23,12 @@ class UrlMappings {
         // 按用户获取信息
         "/users"(resources: 'user', includes: []) {
             "/profile"(resource: 'profile', includes: ['show', 'update'])
-            "/works"(resources: 'workitem', includes: ['index'])
+            "/picture"(resource: 'picture', includes: ['show'])
+            "/works"(resources: 'workitem', includes: ['index', 'patch']) {
+                collection {
+                    "/counts"(controller: 'workitem', action: 'counts', method: 'GET')
+                }
+            }
         }
 
         "500"(view: '/error')

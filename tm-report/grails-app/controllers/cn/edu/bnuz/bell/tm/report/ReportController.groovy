@@ -18,6 +18,7 @@ class ReportController {
 
         def outputStream = reportService.runAndRender(cmd)
         response.setHeader('X-Report-Title', URLEncoder.encode(cmd.title, 'UTF-8'))
+        response.setContentType(cmd.contentType)
         response.outputStream << outputStream.toByteArray()
     }
 }

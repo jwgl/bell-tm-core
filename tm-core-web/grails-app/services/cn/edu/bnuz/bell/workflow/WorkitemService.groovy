@@ -1,5 +1,6 @@
 package cn.edu.bnuz.bell.workflow
 
+import cn.edu.bnuz.bell.http.NotFoundException
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -9,7 +10,7 @@ class WorkitemService {
     Workitem get(String userId, UUID id) {
         Workitem workItem = Workitem.get(id)
         if (!workItem || workItem.to.id != userId) {
-            return renderNotFound()
+            throw new NotFoundException()
         }
 
         if (!workItem.dateReceived) {
