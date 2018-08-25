@@ -140,3 +140,5 @@ bell:
                 - ea
             prefixes:
                 - dv
+    student:
+        picturePath: 'D:\bell\bell-pictures'

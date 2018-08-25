@@ -12,6 +12,7 @@ class UserController {
                 name: userDetails.name,
                 type: userDetails.userType,
                 departmentId: userDetails.departmentId,
+                phoneNumber: userDetails.longPhone,
         ]])
     }
 }

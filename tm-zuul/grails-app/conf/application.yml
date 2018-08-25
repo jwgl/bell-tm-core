@@ -161,4 +161,13 @@ bell:
         menu:
             expiration: 6
 
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 31000
+ribbon:
+    ReadTimeout: 30000
+    ConnectTimeout: 30000

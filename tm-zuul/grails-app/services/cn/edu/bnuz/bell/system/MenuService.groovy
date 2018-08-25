@@ -15,23 +15,13 @@ class MenuService implements ApplicationListener<HeartbeatEvent>  {
     Set<String> applicationNames
 
     def getUserMenus() {
-        MenuItem.withNewSession { Session session ->
-            def procedure = session.createStoredProcedureQuery('sp_build_menu')
+        MenuItem.withSession { Session session ->
+            def procedure = session.createStoredProcedureQuery('sp_get_user_menu')
             procedure.registerStoredProcedureParameter(1, String, ParameterMode.OUT)
             procedure.registerStoredProcedureParameter(2, PostgreSQLStringArrayUserType, ParameterMode.IN)
-            println securityService.getUserRoles()
             procedure.setParameter(2, securityService.getUserRoles() as String[])
             procedure.execute()
             return procedure.getOutputParameterValue(1)
-        }
-    }
-
-    def updateMenuItem() {
-        MenuItem.withNewSession { Session session ->
-            StoredProcedureQuery procedure = session.createStoredProcedureQuery('sp_update_menu_item_status')
-            procedure.registerStoredProcedureParameter('applications', PostgreSQLStringArrayUserType, ParameterMode.IN)
-            procedure.setParameter('applications', applicationNames as String[])
-            procedure.execute()
         }
     }
 
@@ -47,6 +37,15 @@ class MenuService implements ApplicationListener<HeartbeatEvent>  {
         if (this.applicationNames != applicationNames) {
             this.applicationNames = applicationNames
             updateMenuItem()
+        }
+    }
+
+    def updateMenuItem() {
+        MenuItem.withNewSession { Session session ->
+            StoredProcedureQuery procedure = session.createStoredProcedureQuery('sp_update_menu_status')
+            procedure.registerStoredProcedureParameter('applications', PostgreSQLStringArrayUserType, ParameterMode.IN)
+            procedure.setParameter('applications', applicationNames as String[])
+            procedure.execute()
         }
     }
 }
