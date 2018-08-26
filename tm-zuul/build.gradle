@@ -41,6 +41,7 @@ dependencies {
     compile "org.grails:grails-logging"
     compile "org.grails:grails-plugin-rest"
     compile "org.grails:grails-plugin-databinding"
+    compile "org.grails:grails-plugin-i18n"
     compile "org.grails:grails-plugin-services"
     compile "org.grails:grails-plugin-url-mappings"
     compile "org.grails:grails-plugin-interceptors"
@@ -50,9 +51,12 @@ dependencies {
     compile "org.grails.plugins:gsp"
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
+    runtime "org.apache.tomcat:tomcat-jdbc"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:$assetPipelineVersion"
-    testCompile "org.grails.plugins:geb"
+    testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails:grails-web-testing-support"
+    testCompile "org.grails.plugins:geb:1.1.2"
+    testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:2.47.1"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
@@ -61,10 +65,8 @@ dependencies {
     // security
     compile "org.springframework.cloud:spring-cloud-starter-oauth2"
     // eureka
-    compile "org.springframework.cloud:spring-cloud-starter-eureka", {
-        exclude group: 'com.netflix.ribbon', module:'ribbon-transport'
-    }
-    // eureka
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
+    // zuul
     compile "org.springframework.cloud:spring-cloud-starter-zuul"
     // project
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"
@@ -73,6 +75,15 @@ dependencies {
 bootRun {
     jvmArgs('-Dspring.output.ansi.enabled=always')
     addResources = true
+    String springProfilesActive = 'spring.profiles.active'
+    systemProperty springProfilesActive, System.getProperty(springProfilesActive)
+}
+
+tasks.withType(Test) {
+    systemProperty "geb.env", System.getProperty('geb.env')
+    systemProperty "geb.build.reportsDir", reporting.file("geb/integrationTest")
+    systemProperty "webdriver.chrome.driver", System.getProperty('webdriver.chrome.driver')
+    systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
 grails {

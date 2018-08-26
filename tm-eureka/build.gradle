@@ -3,7 +3,7 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.15.RELEASE")
     }
 }
 
@@ -27,7 +27,7 @@ dependencyManagement {
 }
 
 dependencies {
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server', {
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server', {
         exclude group: 'com.amazonaws'
     }
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -37,7 +37,7 @@ configurations.all {
     resolutionStrategy {
         eachDependency { DependencyResolveDetails details ->
             if (details.requested.group == "org.springframework") {
-                details.useVersion "4.3.9.RELEASE"
+                details.useVersion "4.3.18.RELEASE"
             }
         }
     }
