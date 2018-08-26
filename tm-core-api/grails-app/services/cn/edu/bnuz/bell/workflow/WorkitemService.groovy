@@ -76,7 +76,7 @@ order by workitem.dateProcessed desc
             throw new NotFoundException()
         }
 
-        if (workItem.to.id != userId) {
+        if (workItem.toId != userId) {
             throw new ForbiddenException()
         }
 
