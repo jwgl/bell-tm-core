@@ -2,6 +2,7 @@ package cn.edu.bnuz.bell.profile
 
 class ProfileController {
     ProfileService profileService
+
     def show(String userId) {
         respond profileService.getUserInfo(userId)
     }
