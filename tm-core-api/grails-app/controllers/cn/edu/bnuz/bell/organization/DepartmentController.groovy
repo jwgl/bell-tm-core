@@ -4,12 +4,19 @@ class DepartmentController {
     DepartmentService departmentService
 
     def index() {
-        if (params.q == 't') {
-            renderJson departmentService.getTeachingDepartments()
-        } else if (params.q == 'a') {
-            renderJson departmentService.getAdministrativeDepartments()
-        } else {
-            renderJson departmentService.getAllDepartments()
+        switch (params.q) {
+            case 't':
+                renderJson departmentService.getTeachingDepartments()
+                break
+            case 'a':
+                renderJson departmentService.getAdministrativeDepartments()
+                break
+            case 's':
+                renderJson departmentService.getStudentDepartments()
+                break
+            default:
+                renderJson departmentService.getAllDepartments()
+                break
         }
     }
 }
