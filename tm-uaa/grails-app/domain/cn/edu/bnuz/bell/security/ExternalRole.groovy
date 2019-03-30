@@ -1,12 +1,12 @@
 package cn.edu.bnuz.bell.security
 
-import org.codehaus.groovy.util.HashCodeHelper
+import grails.gorm.hibernate.HibernateEntity
 
 /**
  * 学生角色
  * @author Yang Lin
  */
-class ExternalRole implements Serializable {
+class ExternalRole implements Serializable, HibernateEntity<TeacherRole> {
     private static final long serialVersionUID = 1
 
     String userId
@@ -29,13 +29,10 @@ class ExternalRole implements Serializable {
     }
 
     int hashCode() {
-        int hash = HashCodeHelper.initHash()
-        hash = HashCodeHelper.updateHash(hash, userId)
-        hash = HashCodeHelper.updateHash(hash, roleId)
-        hash
+        Objects.hash(userId, roleId)
     }
 
     static List<String> getRoles(String userId) {
-        ExternalRole.executeQuery "select roleId from ExternalRole where userId=:userId", [userId: userId]
+        executeQuery "select roleId from ExternalRole where userId = :userId", [userId: userId]
     }
 }
