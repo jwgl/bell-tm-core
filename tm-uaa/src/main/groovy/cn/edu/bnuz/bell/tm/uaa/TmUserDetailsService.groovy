@@ -19,7 +19,8 @@ class TmUserDetailsService implements UserDetailsService {
                 if (!user) {
                     throw new NoStackUsernameNotFoundException()
                 }
-                Collection<GrantedAuthority> authorities = []
+
+                List<GrantedAuthority> authorities = []
                 authorities << new SimpleGrantedAuthority(Roles.USER)
 
                 switch (user.userType) {
@@ -45,18 +46,16 @@ class TmUserDetailsService implements UserDetailsService {
         }
     }
 
-    private static Collection<GrantedAuthority> loadVirtualAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static void loadVirtualAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.VIRTUAL)
 
         // 配置角色
         authorities.addAll user.roles.collect { new SimpleGrantedAuthority(it.role.id) }
-
-        return authorities
     }
 
 
-    private static Collection<GrantedAuthority> loadTeacherAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static void loadTeacherAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.TEACHER)
 
@@ -65,27 +64,21 @@ class TmUserDetailsService implements UserDetailsService {
 
         // 模块角色
         authorities.addAll TeacherRole.getRoles(user.id).collect {new SimpleGrantedAuthority(it)}
-
-        return authorities
     }
 
-    private static Collection<GrantedAuthority> loadStudentAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static void loadStudentAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.STUDENT)
 
         // 模块角色
         authorities.addAll StudentRole.getRoles(user.id).collect {new SimpleGrantedAuthority(it)}
-
-        return authorities
     }
 
-    private static Collection<GrantedAuthority> loadExternalAuthorities(Collection<GrantedAuthority> authorities, User user) {
+    private static void loadExternalAuthorities(Collection<GrantedAuthority> authorities, User user) {
         // 固定角色
         authorities << new SimpleGrantedAuthority(Roles.EXTERNAL)
 
         // 模块角色
         authorities.addAll ExternalRole.getRoles(user.id).collect {new SimpleGrantedAuthority(it)}
-
-        return authorities
     }
 }
