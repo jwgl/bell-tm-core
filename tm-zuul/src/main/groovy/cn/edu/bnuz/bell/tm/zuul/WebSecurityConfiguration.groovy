@@ -1,6 +1,7 @@
 package cn.edu.bnuz.bell.tm.zuul
 
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -15,7 +16,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository
  * Web安全配置
  * @author Yang Lin
  */
-
+@EnableZuulProxy
 @Configuration
 @EnableOAuth2Sso
 class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
