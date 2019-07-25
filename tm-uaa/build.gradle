@@ -81,8 +81,7 @@ dependencies {
     // postgres
     runtime "org.postgresql:postgresql"
     // security
-    compile "org.springframework.boot:spring-boot-starter-security"
-    compile "org.springframework.security.oauth:spring-security-oauth2"
+    compile "org.springframework.cloud:spring-cloud-starter-oauth2"
     // project
     compile "cn.edu.bnuz.bell:bell-core-sys:0.1"
 }
