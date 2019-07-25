@@ -81,9 +81,7 @@ dependencies {
     // postgres
     runtime "org.postgresql:postgresql"
     // security
-    compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.cloud:spring-cloud-starter-oauth2"
-    compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure"
     // eureka
     compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
     // zuul
