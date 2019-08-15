@@ -5,12 +5,7 @@ class UrlMappings {
     static mappings = {
         get "/"(controller: 'index')
         get "/login"(controller: 'login')
-
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
-        }
+        get "/publicKey"(controller: 'publicKey')
 
         "500"(view:'/error')
         "404"(view:'/notFound')

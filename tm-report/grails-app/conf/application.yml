@@ -1,6 +1,6 @@
 ---
 grails:
-    profile: rest-api
+    profile: web
     codegen:
         defaultPackage: cn.edu.bnuz.bell
     gorm:
@@ -83,12 +83,13 @@ grails:
             htmlcodec: xml
             codecs:
                 expression: html
-                scriptlets: html
+                scriptlet: html
                 taglib: none
                 staticparts: none
-endpoints:
-    jmx:
-        unique-names: true
+management:
+    endpoints:
+        jmx:
+            unique-names: true
 
 ---
 hibernate:
@@ -154,7 +155,8 @@ eureka:
 security:
     oauth2:
         resource:
-            userInfoUri: http://localhost/uaa/user
+            jwt:
+                key-uri: http://localhost/uaa/publicKey
 
 bell:
     orm:

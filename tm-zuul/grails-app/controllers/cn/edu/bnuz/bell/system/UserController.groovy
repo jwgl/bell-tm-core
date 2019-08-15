@@ -6,13 +6,6 @@ class UserController {
     SecurityService securityService
 
     def index() {
-        def userDetails = securityService.userDetails
-        renderJson([user: [
-                id: userDetails.username,
-                name: userDetails.name,
-                type: userDetails.userType,
-                departmentId: userDetails.departmentId,
-                phoneNumber: userDetails.longPhone,
-        ]])
+        renderJson([user: securityService.userDetails])
     }
 }
