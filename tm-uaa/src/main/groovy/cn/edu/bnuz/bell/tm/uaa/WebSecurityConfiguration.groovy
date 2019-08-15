@@ -30,15 +30,15 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage('/login')
                 .permitAll()
                 .and()
-            .requestMatchers()
-                .antMatchers('/', '/login', '/oauth/authorize', '/oauth/confirm_access')
-                .and()
-            .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
             .csrf()
                 .csrfTokenRepository(csrfTokenRepository())
+                .and()
+            .requestMatchers()
+                .antMatchers('/', '/login', '/publicKey', '/error', '/oauth/authorize', '/oauth/confirm_access')
+                .and()
+            .authorizeRequests()
+                .antMatchers('/publicKey', '/error').permitAll()
+                .anyRequest().authenticated()
     }
 
     @Override

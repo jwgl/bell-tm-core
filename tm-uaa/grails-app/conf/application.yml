@@ -143,6 +143,14 @@ server:
     servlet:
         context-path: /uaa
 
+security:
+    oauth2:
+        authorization:
+            jwt:
+                key-store: file:C:/test.jks
+                key-store-password: password
+                key-alias: test
+
 bell:
     orm:
         ignored:
