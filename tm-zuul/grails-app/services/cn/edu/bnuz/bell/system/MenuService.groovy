@@ -16,6 +16,7 @@ class MenuService implements ApplicationListener<HeartbeatEvent>  {
 
     def getUserMenus() {
         MenuItem.withSession { Session session ->
+            println(securityService.getUserRoles())
             def procedure = session.createStoredProcedureQuery('sp_get_user_menu')
             procedure.registerStoredProcedureParameter(1, String, ParameterMode.OUT)
             procedure.registerStoredProcedureParameter(2, PostgreSQLStringArrayUserType, ParameterMode.IN)
