@@ -54,7 +54,8 @@ class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdap
                 DefaultOAuth2AccessToken oauth2AccessToken = accessToken as DefaultOAuth2AccessToken
                 BellUser bellUser = authentication.userAuthentication.principal as BellUser
                 oauth2AccessToken.setAdditionalInformation([
-                        details: bellUser.details
+                        details: bellUser.details,
+                        sub: bellUser.id,
                 ])
                 return accessToken
             }
